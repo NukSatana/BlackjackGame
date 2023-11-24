@@ -43,7 +43,7 @@ class BlackjackGame:
         hand.append(self.deck.pop())
 
     async def stand(self):
-        while self.calculate_hand_value(self.dealer_hand) < 17:
+        while self.calculate_hand_value(self.dealer_hand) < 21:
             await self.hit(self.dealer_hand)
 
     async def play(self):
@@ -52,7 +52,7 @@ class BlackjackGame:
         # Логика
 
         # пока значение руки не станет 17 или больше.
-        while self.calculate_hand_value(self.player_hand) < 17:
+        while self.calculate_hand_value(self.player_hand) < 21:
             await self.hit(self.player_hand)
 
         await self.stand()
